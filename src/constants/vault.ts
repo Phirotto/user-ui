@@ -77,4 +77,11 @@ export const VAULT_ABI = [
     stateMutability: "nonpayable",
     type: "function",
   },
+  {
+    inputs: [],
+    name: "withdrawUserStake",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
 ];

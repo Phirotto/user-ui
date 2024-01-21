@@ -41,12 +41,19 @@ export function ViewVault() {
           <Typography.Text type={isParticipant ? "success" : "danger"}>
             {isParticipant ? "Yes" : "No"}
           </Typography.Text>
-          {!isParticipant && (
+          {!isParticipant ? (
             <Button
               onClick={() => navigate(`/checkin/${vaultAddress}`)}
               type="link"
             >
               Check In
+            </Button>
+          ) : (
+            <Button
+              type="link"
+              onClick={() => navigate(`/withdraw/${vaultAddress}`)}
+            >
+              Withdraw
             </Button>
           )}
         </Space>

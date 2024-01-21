@@ -1,7 +1,7 @@
 import { Button, Form, Input, InputNumber, Space, Typography } from "antd";
 import BigNumber from "bignumber.js";
 import { useMemo, useState } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { useSearchParams } from "react-router-dom";
 import { isAddress } from "viem";
 import { useAccount } from "wagmi";
@@ -17,6 +17,7 @@ export function CheckIn() {
   const params = useParams();
   const [search] = useSearchParams();
   const { address } = useAccount();
+  const navigate = useNavigate();
 
   const vaultAddress = params["vault"] as `0x${string}`;
   const { write, isSending, isWaiting } = useCheckIn(vaultAddress);
@@ -103,6 +104,12 @@ export function CheckIn() {
             Check In
           </Button>
         )}
+        <Button
+          type="link"
+          onClick={() => navigate(`/withdraw/${vaultAddress}`)}
+        >
+          Withdraw
+        </Button>
       </Space>
     </Form>
   );

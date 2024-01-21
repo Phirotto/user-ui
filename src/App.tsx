@@ -6,6 +6,7 @@ import { RouterProvider, createHashRouter } from "react-router-dom";
 import { App as AntdApp } from "antd";
 import { ViewVault } from "./ViewVault";
 import { CheckIn } from "./CheckIn";
+import { Withdraw } from "./Withdraw";
 
 const router = createHashRouter([
   {
@@ -15,6 +16,10 @@ const router = createHashRouter([
   {
     path: "checkin/:vault",
     element: <CheckIn />,
+  },
+  {
+    path: "withdraw/:vault",
+    element: <Withdraw />,
   },
 ]);
 
