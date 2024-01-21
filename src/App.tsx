@@ -5,11 +5,16 @@ import { Layout } from "./Layout";
 import { RouterProvider, createHashRouter } from "react-router-dom";
 import { App as AntdApp } from "antd";
 import { ViewVault } from "./ViewVault";
+import { CheckIn } from "./CheckIn";
 
 const router = createHashRouter([
   {
     path: "/:vault",
     element: <ViewVault />,
+  },
+  {
+    path: "checkin/:vault",
+    element: <CheckIn />,
   },
 ]);
 

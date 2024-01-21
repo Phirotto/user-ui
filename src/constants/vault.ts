@@ -54,4 +54,27 @@ export const VAULT_ABI = [
     stateMutability: "view",
     type: "function",
   },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "account",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "amount",
+        type: "uint256",
+      },
+      {
+        internalType: "bytes",
+        name: "proof",
+        type: "bytes",
+      },
+    ],
+    name: "checkIn",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
 ];
