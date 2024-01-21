@@ -1,10 +1,11 @@
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { useVaultInfo } from "./hooks/useVaultInfo";
-import { Skeleton, Space, Typography } from "antd";
+import { Button, Skeleton, Space, Typography } from "antd";
 import BigNumber from "bignumber.js";
 
 export function ViewVault() {
   const params = useParams();
+  const navigate = useNavigate();
 
   const vaultAddress = params["vault"] as `0x${string}`;
 
@@ -40,6 +41,14 @@ export function ViewVault() {
           <Typography.Text type={isParticipant ? "success" : "danger"}>
             {isParticipant ? "Yes" : "No"}
           </Typography.Text>
+          {!isParticipant && (
+            <Button
+              onClick={() => navigate(`/checkin/${vaultAddress}`)}
+              type="link"
+            >
+              Check In
+            </Button>
+          )}
         </Space>
       )}
     </Space>
