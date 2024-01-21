@@ -16,7 +16,7 @@ type CheckInData = {
 export function CheckIn() {
   const params = useParams();
   const [search] = useSearchParams();
-  const { address } = useAccount();
+  const { address, isConnected } = useAccount();
   const navigate = useNavigate();
 
   const vaultAddress = params["vault"] as `0x${string}`;
@@ -100,8 +100,8 @@ export function CheckIn() {
         {isSending || isWaiting ? (
           <Typography.Text strong>Check In in progress...</Typography.Text>
         ) : (
-          <Button disabled={!isValid} onClick={onCheckInClick}>
-            Check In
+          <Button disabled={!isValid || !isConnected} onClick={onCheckInClick}>
+            {isConnected ? "Check In" : "Connect wallet first"}
           </Button>
         )}
         <Button
